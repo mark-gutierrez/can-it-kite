@@ -2,7 +2,7 @@
 
 This web app aims to find parks and recreational areas near a chosen address that has optimal weather conditions to fly a kite.
 
-Try out the app [here.](http://www.google.com)
+Try out the app [here.](https://can-it-kite.vercel.app/)
 
 ## Optimal [weather conditions](https://www.weatherapi.com/docs/weather_conditions.json) chosen from Weather API
 |Code|Weather|
