@@ -85,3 +85,35 @@ input[type="text"] {
     color: #fff;
     text-decoration:underline;
 }
+
+@media only screen and (max-width: 600px) {
+    form {
+        display: block;
+    }
+    label {
+        display: block;
+        margin: 0 auto;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    input[type="text"] {
+        padding:.5rem .75rem;
+        font-size: 1.2rem;
+        line-height:1.5rem;
+        color:#495057;
+        background-color:#fff;
+        background-clip:padding-box;
+        border:.125rem solid #ced4da;
+        border-radius:.50rem;
+    }
+    .map {
+        width: 75vw; 
+        height: 50vh;
+        margin: 0 auto;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+  }
