@@ -1,5 +1,5 @@
 var map, searchManager, queryManager, infobox
-var sdsDataSourceUrl = 'http://spatial.virtualearth.net/REST/v1/data/Microsoft/PointsOfInterest'
+var sdsDataSourceUrl = 'https://spatial.virtualearth.net/REST/v1/data/Microsoft/PointsOfInterest'
 let weatherFilters = [1000, 1003, 1006, 1009, 1030, 1063, 1066, 1069, 1072] // https://www.weatherapi.com/docs/weather_conditions.json
 
 function loadMapScenario() {
