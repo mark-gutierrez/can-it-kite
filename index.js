@@ -3,11 +3,13 @@ const fs = require('node:fs')
 const express = require('express')
 const { Buffer } = require('node:buffer')
 const cors = require('cors')
+const favicon = require('serve-favicon')
 require('dotenv').config()
 
 const app = express()
 const port = 3000
 
+app.use(favicon(path.join(__dirname, 'public', 'logo.ico')))
 app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
