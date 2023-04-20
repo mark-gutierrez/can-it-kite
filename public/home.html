@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key={{API_KEY}}' async defer></script>
+    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=loadMapScenario&key={{API_KEY}}' async defer></script>
     <script type='text/javascript' src="/maps.js" async defer></script>
+    <link href="main.css" rel="stylesheet" />
     <title>Can It Kite?</title>
 </head>
-<body onload='loadMapScenario();'>
-    <form id="form">
-        <label for="address">Address:</label><br>
-        <input type="text" id="address" name="address"><br>
-    </form>
-    
-    <div id='myMap' style='width: 80vw; height: 80vh;'></div>
+<body>
+    <header class="header">
+        <h1>Can it kite?</h1>
+    </header>
+    <main>
+        <form id="form" class="address">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address">
+        </form>
+        <div id='myMap' class='map'></div>
+    </main>
+    <footer class="footer">
+        <p>Find local parks near you to fly a kite.</p>
+        <p>&copy; Can It Kite? 2023</p>
+    </footer>
 </body>
 </html>
