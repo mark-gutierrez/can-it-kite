@@ -1,5 +1,6 @@
 var map, searchManager, queryManager, infobox
 var sdsDataSourceUrl = 'http://spatial.virtualearth.net/REST/v1/data/Microsoft/PointsOfInterest'
+let weatherFilters = [1000, 1003, 1006, 1009, 1030, 1063, 1066, 1069, 1072] // https://www.weatherapi.com/docs/weather_conditions.json
 
 function loadMapScenario() {
     map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
@@ -67,14 +68,14 @@ async function searchWeather(data) {
         ).json()
     
     setPins(data, JSON.parse(results.data))
-
-    // Add results to the map.
-    map.entities.push(data);
 }
 
 function setPins(locations, weather) {
 
     for (let i = 0; i < locations.length; i++) {
+        // guard clause if it is raining or not windy enough
+        if(!weatherFilters.includes(weather[i]?.code) || weather[i]?.wind_kph < 13) continue
+
         // adding weather to location metadata
         locations[i].metadata = {... locations[i].metadata, ... weather[i]}
         // Add a click event handler to the pushpin.
@@ -82,6 +83,10 @@ function setPins(locations, weather) {
 
         // Add pushpin to the map.
         map.entities.push(locations[i]);
+    }
+
+    if (map.entities.getLength() === 0) {
+        alert('Weather conditions not appropriate for kite flying in your area.')
     }
 
     // reset map view

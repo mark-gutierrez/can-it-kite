@@ -34,8 +34,9 @@ app.post('/weather', async (req, res) => {
     const weatherUrl = 'http://api.weatherapi.com/v1/current.json'
     const requests = data.map(({Latitude,Longitude}) => fetch(`${weatherUrl}?key=${process.env.WEATHER_API_KEY}&q=${Latitude},${Longitude}`))
     const results = await Promise.all(requests).then(responses => Promise.all(responses.map(r => r.json())))
-    const response = results.map(({current: {condition: {text}, gust_kph, wind_kph}}) => { 
-        return {weather: text, gust_kph, wind_kph}
+    console.log(results[0].current.condition)
+    const response = results.map(({current: {condition: {text, code}, gust_kph, wind_kph}}) => { 
+        return {weather: text, gust_kph, wind_kph, code}
     })
     res.json({data: JSON.stringify(response)})
 })
